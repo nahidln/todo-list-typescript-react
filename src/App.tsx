@@ -8,9 +8,13 @@ function App() {
   const handleTask=(e:ChangeEvent<HTMLInputElement>)=>{
     setTask(e.target.value)
   }
-  const handleAddButton=()=>{
-    SetTaskList([...tasklist,task]);
-    setTask('')
+  const handleAddButton=(item:string)=>{
+    if(item==""){
+      alert('please add one task')
+    }else{
+      SetTaskList([...tasklist,task]);
+      setTask('');
+    }
   }
 
   const handleDelete=(e:React.MouseEvent<HTMLSpanElement>)=>{
@@ -22,15 +26,15 @@ function App() {
     <div className="App">
       <h2>To Do List Application</h2>
       <div>
-        <input type='text' value={task} onChange={handleTask} />
-        <button className='btnAdd' onClick={handleAddButton}>Add</button>
+        <input type='text' value={task} onChange={handleTask} placeholder='Add Task List' />
+        <button className='btnAdd' onClick={()=>{handleAddButton(task)}} title='Add Task'>Add</button>
       </div>
       <ul>
         {
           tasklist.map((item,index)=>
           <li className='liItem' key={index}>
             <span>{item}</span>
-            <span className='btnRemove' onClick={handleDelete} id={item}>X</span>
+            <span className='btnRemove' onClick={handleDelete} id={item} title='Delete Task'>X</span>
           </li>
           )
         }

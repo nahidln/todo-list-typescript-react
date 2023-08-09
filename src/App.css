@@ -36,10 +36,12 @@ h2{
     outline: none;
     border: 1px solid #ccc;
     height: 30px;
+    cursor: pointer;
 }
 ul{
     list-style-type: none;
   /* margin: 5px 0px; */
+  margin-left: 0px;
   
 }
 
@@ -62,6 +64,29 @@ ul{
 .btnRemove{
     color: red;
     padding: 2px 5px;
-    
+    cursor: pointer;
     background-color: azure;
+}
+
+@media screen and (max-width:700px)
+{
+    .App{
+        width:450px;       
+    }
+
+    .App input{
+        width: 300px;
+        margin-left: 10px;
+    }
+
+    ul{
+        list-style-type: none;
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+    .liItem{
+        width:380px;
+        margin-left:10px;
+    }
+
 }
